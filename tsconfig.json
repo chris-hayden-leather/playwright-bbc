@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"],
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@fixtures": ["./fixtures"],
+      "@fixtures/*": ["./fixtures/*"],
+      "@pageObjects/*": ["./pages/*"],
+      "@tests/*": ["./tests/*"],
+      "@testdata/*": ["./test-data/*"],
+    }
+  }
+}
