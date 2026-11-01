@@ -6,7 +6,7 @@ A Playwright + TypeScript automation suite covering key user-facing features of 
 
 ## Stack
 
-- [Playwright](https://playwright.dev/) — test runner and browser automation
+- [Playwright](https://playwright.dev/) - test runner and browser automation
 - TypeScript
 - Node.js
 
@@ -63,11 +63,11 @@ A Playwright + TypeScript automation suite covering key user-facing features of 
 
 ### Environment-agnostic by design
 
-Tests are not coupled to `bbc.co.uk` specifically. `baseURL` is defined per project in the `use` block of `playwright.config.ts` and exposed via an `environmentBaseURL` fixture. Adding a staging equivalent of each project requires only a new project entry with a different `baseURL` — no test changes required.
+Tests are not coupled to `bbc.co.uk` specifically. `baseURL` is defined per project in the `use` block of `playwright.config.ts` and exposed via an `environmentBaseURL` fixture. Adding a staging equivalent of each project requires only a new project entry with a different `baseURL` with no test changes required.
 
 ### Navigation and setup
 
-A hybrid approach is used depending on the spec. Where all tests in a spec use a page fixture (e.g. article), the fixture handles navigation and any pre-test setup (such as dismissing the sign-in prompt) before yielding to the test. Where some tests only require `page` directly and have no use for the page object fixture, `beforeEach` handles navigation instead — this avoids the fixture `goto` being skipped for tests that don't destructure it.
+A hybrid approach is used depending on the spec. Where all tests in a spec use a page fixture (e.g. article), the fixture handles navigation and any pre-test setup (such as dismissing the sign-in prompt) before yielding to the test. Where some tests only require `page` directly and have no use for the page object fixture, `beforeEach` handles navigation instead, avoiding the fixture `goto` being skipped for tests that don't destructure it.
 
 ### Session cookie injection
 
@@ -75,7 +75,7 @@ The `ckns_explicit` cookie (BBC's explicit consent cookie) is injected at the co
 
 ### Data-driven nav link tests
 
-Nav link labels and paths are maintained in `test-data/globalNavigation.data.ts`. The test iterates over this data and resolves links against whichever container they appear in — visible nav or overflow "more" menu — using Playwright's `.or()` locator. This means the test is resilient to BBC reshuffling which links are visible vs. overflow at different viewport widths.
+Nav link labels and paths are maintained in `test-data/globalNavigation.data.ts`. The test iterates over this data and resolves links against whichever container they appear in, either the visible nav or overflow "more" menu using Playwright's `.or()` locator. This means the test is resilient to BBC reshuffling which links are visible vs. overflow at different viewport widths.
 
 ### Locator strategy
 
@@ -145,4 +145,4 @@ npx playwright show-report
 
 - API-level validation of BBC content feeds
 - Axe-core accessibility checks on key page templates
-- BBC Sounds and iPlayer page structure tests (navigation, content tiles, metadata — not playback)
+- BBC Sounds and iPlayer page structure tests (navigation, content tiles, metadata but not playback)
